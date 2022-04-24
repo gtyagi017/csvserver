@@ -1,0 +1,11 @@
+version: '3'
+services:
+        web:
+                image: "infracloudio/csvserver:latest"
+                ports: 
+                 - "9393:9300"
+                volumes:
+                 - /home/gagan/csvserver/solution/inputFile.txt:/csvserver/inputdata
+                environment:
+                 - CSVSERVER_BORDER=Orange        
+
