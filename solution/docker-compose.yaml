@@ -7,5 +7,13 @@ services:
                 volumes:
                  - /home/gagan/csvserver/solution/inputFile.txt:/csvserver/inputdata
                 environment:
-                 - CSVSERVER_BORDER=Orange        
-
+                 - CSVSERVER_BORDER=Orange
+        promp:
+                image: "prom/prometheus:v2.22.0"
+                container_name: prometheus
+                ports:
+                 - "9090:9090"        
+                volumes:
+                 - /home/gagan/csvserver/solution/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+                command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml   
+  

@@ -1,0 +1,15 @@
+global:
+    scrape_interval: 15s
+    evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+     - targets:
+        - '172.30.157.104:9090'
+  - job_name: "csvserver"
+    scrape_interval: 5m
+    scrape_timeout: 1m    
+    static_configs:
+     - targets:   
+        - '172.30.157.104:9393' 
